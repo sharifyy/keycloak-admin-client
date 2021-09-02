@@ -9,10 +9,12 @@ public class RoleMapper {
 
     public RoleRepresentation roleCommandToRoleRepresentation(RoleCommand roleCommand) {
         RoleRepresentation roleRepresentation = new RoleRepresentation();
-//        if(roleCommand.getId()!=null)
-//            roleRepresentation.setId(roleCommand.getId());
         roleRepresentation.setName(roleCommand.getName());
         roleRepresentation.setDescription(roleCommand.getDescription());
+//        roleRepresentation.setComposite(roleCommand.isComposite());
+//        roleRepresentation.setClientRole(roleCommand.isClientRole());
+//        roleRepresentation.setComposites(roleCommand.getComposites());
+//        roleRepresentation.setContainerId(roleCommand.getContainerId());
         return roleRepresentation;
     }
 }
