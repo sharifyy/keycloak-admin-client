@@ -1,6 +1,6 @@
 package com.example.keycloakapi.group;
 
-import com.example.keycloakapi.permission.AdminClientResponse;
+import com.example.keycloakapi.AdminClientResponse;
 import org.keycloak.representations.idm.GroupRepresentation;
 import org.keycloak.representations.idm.UserRepresentation;
 import org.springframework.http.HttpStatus;

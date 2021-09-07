@@ -11,9 +11,15 @@ public interface PermissionService {
 
     PolicyRepresentation getPermissionById(String realm, String id, String permissionId);
 
-    Response createPermission(String realm, String clientHexId, PermissionDTO permissionDTO);
+    Response createPermission(String realm, String clientHexId, PermissionCommand permissionCommand);
 
     void deletePermission(String realm, String id, String permissionId);
 
-    void updatePermission(String realm, String id, PermissionDTO permissionDTO);
+    void updatePermission(String realm, String id, PermissionCommand permissionCommand);
+
+    void addRolesToPermission(String realm, String id, RolePermissionDTO roles);
+
+    void removeRoles(String realm, String id, RolePermissionDTO roles);
+
+    void addGroupsToPermission(String realm, String id, GroupPermissionDTO roles);
 }

@@ -1,6 +1,6 @@
 package com.example.keycloakapi.role;
 
-import com.example.keycloakapi.permission.AdminClientResponse;
+import com.example.keycloakapi.AdminClientResponse;
 import org.keycloak.representations.idm.RoleRepresentation;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

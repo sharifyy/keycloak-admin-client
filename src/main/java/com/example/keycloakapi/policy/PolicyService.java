@@ -1,6 +1,5 @@
 package com.example.keycloakapi.policy;
 
-import com.example.keycloakapi.permission.PermissionDTO;
 import org.keycloak.representations.idm.authorization.PolicyRepresentation;
 
 import javax.ws.rs.core.Response;
@@ -12,13 +11,13 @@ public interface PolicyService {
 
     PolicyRepresentation getPolicyById(String realm, String id, String policyId);
 
-    Response createRolePolicy(String realm, String clientHexId, PolicyRoleDTO policyRoleDTO);
+    Response createRolePolicy(String realm, String clientHexId, PolicyRoleCommand policyRoleCommand);
 
     void deletePolicy(String realm, String id, String policyId);
 
-    void updateRolePolicy(String realm, String id, PolicyRoleDTO policyRoleDTO);
+    void updateRolePolicy(String realm, String id, PolicyRoleCommand policyRoleCommand);
 
-    Response createGroupPolicy(String realm, String id, PolicyGroupDTO policyGroupDTO);
+    Response createGroupPolicy(String realm, String id, PolicyGroupCommand policyGroupCommand);
 
-    void updateGroupPolicy(String realm, String clientHexId, PolicyGroupDTO policyGroupDTO);
+    void updateGroupPolicy(String realm, String clientHexId, PolicyGroupCommand policyGroupCommand);
 }

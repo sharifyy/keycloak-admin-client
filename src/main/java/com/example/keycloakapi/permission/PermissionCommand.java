@@ -5,7 +5,7 @@ import org.keycloak.representations.idm.authorization.DecisionStrategy;
 import javax.validation.constraints.NotNull;
 import java.util.Set;
 
-public class PermissionDTO {
+public class PermissionCommand {
 
     private String id;
     @NotNull

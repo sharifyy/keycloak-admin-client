@@ -7,7 +7,7 @@ import org.keycloak.representations.idm.authorization.RolePolicyRepresentation;
 import javax.validation.constraints.NotNull;
 import java.util.Set;
 
-public class PolicyRoleDTO {
+public class PolicyRoleCommand {
 
     private String id;
     @NotNull

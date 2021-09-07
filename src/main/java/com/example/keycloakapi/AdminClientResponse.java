@@ -1,4 +1,4 @@
-package com.example.keycloakapi.permission;
+package com.example.keycloakapi;
 
 public final class AdminClientResponse {
     private final int status;

@@ -1,8 +1,8 @@
 package com.example.keycloakapi.mapper;
 
-import com.example.keycloakapi.permission.PermissionDTO;
-import com.example.keycloakapi.policy.PolicyGroupDTO;
-import com.example.keycloakapi.policy.PolicyRoleDTO;
+import com.example.keycloakapi.permission.PermissionCommand;
+import com.example.keycloakapi.policy.PolicyGroupCommand;
+import com.example.keycloakapi.policy.PolicyRoleCommand;
 import org.keycloak.representations.idm.authorization.GroupPolicyRepresentation;
 import org.keycloak.representations.idm.authorization.PolicyRepresentation;
 import org.keycloak.representations.idm.authorization.RolePolicyRepresentation;
@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 @Component
 public final class PolicyMapper {
 
-    public PolicyRepresentation permissionDTOtoPolicyRepresentation(PermissionDTO permission){
+    public PolicyRepresentation permissionDTOtoPolicyRepresentation(PermissionCommand permission){
         PolicyRepresentation resourcePermissionRepresentation = new PolicyRepresentation();
         if(permission.getId()!=null)
             resourcePermissionRepresentation.setId(permission.getId());
@@ -24,29 +24,29 @@ public final class PolicyMapper {
         return resourcePermissionRepresentation;
     }
 
-    public RolePolicyRepresentation policyRoleDTOtoRolePolicyRepresentation(PolicyRoleDTO policyRoleDTO) {
+    public RolePolicyRepresentation policyRoleDTOtoRolePolicyRepresentation(PolicyRoleCommand policyRoleCommand) {
         RolePolicyRepresentation policyRepresentation = new RolePolicyRepresentation();
-        if(policyRoleDTO.getId()!=null)
-            policyRepresentation.setId(policyRoleDTO.getId());
-        policyRepresentation.setName(policyRoleDTO.getName());
+        if(policyRoleCommand.getId()!=null)
+            policyRepresentation.setId(policyRoleCommand.getId());
+        policyRepresentation.setName(policyRoleCommand.getName());
         policyRepresentation.setType("role");
-        policyRepresentation.setDescription(policyRoleDTO.getDescription());
-        policyRepresentation.setLogic(policyRoleDTO.getLogic());
-        policyRepresentation.setDecisionStrategy(policyRoleDTO.getDecisionStrategy());
-        policyRepresentation.setRoles(policyRoleDTO.getRoles());
+        policyRepresentation.setDescription(policyRoleCommand.getDescription());
+        policyRepresentation.setLogic(policyRoleCommand.getLogic());
+        policyRepresentation.setDecisionStrategy(policyRoleCommand.getDecisionStrategy());
+        policyRepresentation.setRoles(policyRoleCommand.getRoles());
         return policyRepresentation;
     }
 
-    public GroupPolicyRepresentation policyGroupDTOtoGroupPolicyRepresentation(PolicyGroupDTO policyGroupDTO){
+    public GroupPolicyRepresentation policyGroupDTOtoGroupPolicyRepresentation(PolicyGroupCommand policyGroupCommand){
         GroupPolicyRepresentation groupPolicyRepresentation = new GroupPolicyRepresentation();
-        if(policyGroupDTO.getId()!=null)
-            groupPolicyRepresentation.setId(policyGroupDTO.getId());
-        groupPolicyRepresentation.setName(policyGroupDTO.getName());
+        if(policyGroupCommand.getId()!=null)
+            groupPolicyRepresentation.setId(policyGroupCommand.getId());
+        groupPolicyRepresentation.setName(policyGroupCommand.getName());
         groupPolicyRepresentation.setType("group");
-        groupPolicyRepresentation.setDescription(policyGroupDTO.getDescription());
-        groupPolicyRepresentation.setLogic(policyGroupDTO.getLogic());
-        groupPolicyRepresentation.setGroupsClaim(policyGroupDTO.getGroupsClaim());
-        groupPolicyRepresentation.setGroups(policyGroupDTO.getGroups());
+        groupPolicyRepresentation.setDescription(policyGroupCommand.getDescription());
+        groupPolicyRepresentation.setLogic(policyGroupCommand.getLogic());
+        groupPolicyRepresentation.setGroupsClaim(policyGroupCommand.getGroupsClaim());
+        groupPolicyRepresentation.setGroups(policyGroupCommand.getGroups());
         return groupPolicyRepresentation;
     }
 }

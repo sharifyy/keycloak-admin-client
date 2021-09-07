@@ -22,23 +22,23 @@ public class KeyCloakApiApplication {
 		@Bean
 	ApplicationRunner applicationRunner(){
 		return args -> {
-			Keycloak keycloak = KeycloakBuilder.builder()
-					.grantType(CLIENT_CREDENTIALS)
-					.serverUrl("http://localhost:8080/auth")
-					.realm("master")
-					.clientId("admin-cli")
-					.clientSecret("37f4d1fc-5aec-43c0-87f8-7fc2511e6646")
-					.build();
-
-			PolicyRepresentation resourcePermissionRepresentation = keycloak.realm("spring-demo")
-					.clients().get("d74441af-67c2-43a8-98cc-a0a3660f0430")
-					.authorization()
-					.policies().policy("4fb6962a-c3d4-45af-ad2e-ab2b5e08d6f6").toRepresentation();
-//					.permissions().resource().findById("4fb6962a-c3d4-45af-ad2e-ab2b5e08d6f6").toRepresentation();
-			System.out.println(resourcePermissionRepresentation);
-//					.policies()
-//					.policies()
-//					.forEach(policyRepresentation -> System.out.println(policyRepresentation.getName()+", "+policyRepresentation.getId()));
+//			Keycloak keycloak = KeycloakBuilder.builder()
+//					.grantType(CLIENT_CREDENTIALS)
+//					.serverUrl("http://localhost:8080/auth")
+//					.realm("master")
+//					.clientId("admin-cli")
+//					.clientSecret("37f4d1fc-5aec-43c0-87f8-7fc2511e6646")
+//					.build();
+//
+//			PolicyRepresentation resourcePermissionRepresentation = keycloak.realm("spring-demo")
+//					.clients().get("d74441af-67c2-43a8-98cc-a0a3660f0430")
+//					.authorization()
+//					.policies().policy("4fb6962a-c3d4-45af-ad2e-ab2b5e08d6f6").toRepresentation();
+////					.permissions().resource().findById("4fb6962a-c3d4-45af-ad2e-ab2b5e08d6f6").toRepresentation();
+//			System.out.println(resourcePermissionRepresentation);
+////					.policies()
+////					.policies()
+////					.forEach(policyRepresentation -> System.out.println(policyRepresentation.getName()+", "+policyRepresentation.getId()));
 
 		};
 	}

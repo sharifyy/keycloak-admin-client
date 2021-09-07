@@ -7,7 +7,7 @@ import org.keycloak.representations.idm.authorization.Logic;
 import javax.validation.constraints.NotNull;
 import java.util.Set;
 
-public class PolicyGroupDTO {
+public class PolicyGroupCommand {
 
     private String id;
     @NotNull

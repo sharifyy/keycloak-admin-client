@@ -52,19 +52,19 @@ public final class PolicyClient implements PolicyService {
 
 
     @Override
-    public Response createRolePolicy(String realm, String clientHexId, PolicyRoleDTO policyRoleDTO) {
+    public Response createRolePolicy(String realm, String clientHexId, PolicyRoleCommand policyRoleCommand) {
         return client(realm, clientHexId)
                 .policies()
                 .role()
-                .create(policyMapper.policyRoleDTOtoRolePolicyRepresentation(policyRoleDTO));
+                .create(policyMapper.policyRoleDTOtoRolePolicyRepresentation(policyRoleCommand));
     }
 
     @Override
-    public Response createGroupPolicy(String realm, String clientHexId, PolicyGroupDTO policyGroupDTO) {
+    public Response createGroupPolicy(String realm, String clientHexId, PolicyGroupCommand policyGroupCommand) {
         return client(realm, clientHexId)
                 .policies()
                 .group()
-                .create(policyMapper.policyGroupDTOtoGroupPolicyRepresentation(policyGroupDTO));
+                .create(policyMapper.policyGroupDTOtoGroupPolicyRepresentation(policyGroupCommand));
     }
 
     @Override
@@ -76,19 +76,19 @@ public final class PolicyClient implements PolicyService {
     }
 
     @Override
-    public void updateRolePolicy(String realm, String clientHexId, PolicyRoleDTO policyRoleDTO) {
+    public void updateRolePolicy(String realm, String clientHexId, PolicyRoleCommand policyRoleCommand) {
         client(realm, clientHexId)
                 .policies()
-                .role().findById(policyRoleDTO.getId())
-                .update(policyMapper.policyRoleDTOtoRolePolicyRepresentation(policyRoleDTO));
+                .role().findById(policyRoleCommand.getId())
+                .update(policyMapper.policyRoleDTOtoRolePolicyRepresentation(policyRoleCommand));
     }
 
     @Override
-    public void updateGroupPolicy(String realm, String clientHexId, PolicyGroupDTO policyGroupDTO) {
+    public void updateGroupPolicy(String realm, String clientHexId, PolicyGroupCommand policyGroupCommand) {
         client(realm, clientHexId)
                 .policies()
-                .group().findById(policyGroupDTO.getId())
-                .update(policyMapper.policyGroupDTOtoGroupPolicyRepresentation(policyGroupDTO));
+                .group().findById(policyGroupCommand.getId())
+                .update(policyMapper.policyGroupDTOtoGroupPolicyRepresentation(policyGroupCommand));
     }
 
     private AuthorizationResource client(String realm, String clientHexId) {
